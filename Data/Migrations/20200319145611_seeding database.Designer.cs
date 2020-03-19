@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Property_Management.Data;
 
 namespace Property_Management.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200319145611_seeding database")]
+    partial class seedingdatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,22 +50,22 @@ namespace Property_Management.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "c8c58a0d-c4d8-4235-a0b8-1327eecf9d87",
-                            ConcurrencyStamp = "0ab69b71-813c-43b9-a89a-22b647f68e30",
+                            Id = "58206b39-c1be-45d0-9386-6a9dfd9655cd",
+                            ConcurrencyStamp = "5d007f9f-c312-4b65-9178-7b6eff322f02",
                             Name = "LandLord",
                             NormalizedName = "LANDLORD"
                         },
                         new
                         {
-                            Id = "0e98d261-e1b4-464e-992e-4286e93b3458",
-                            ConcurrencyStamp = "3b06605d-73e0-4f00-8169-81c275b0ac3a",
+                            Id = "b5dc6cc6-23e6-4817-86a2-10e1b6c2e7dc",
+                            ConcurrencyStamp = "4a9e0b24-8b04-4014-886f-b4a285bdbcac",
                             Name = "Contractor",
                             NormalizedName = "CONTRACTOR"
                         },
                         new
                         {
-                            Id = "f17cf6f2-a473-4cd8-b528-7024ffac2297",
-                            ConcurrencyStamp = "553e51d5-22e9-4ec3-a0d0-b81426b3535f",
+                            Id = "68182bb2-290e-41e3-ac54-466d6b2bdd24",
+                            ConcurrencyStamp = "77ff58b8-9393-4484-9b11-944a282df1cc",
                             Name = "Tennant",
                             NormalizedName = "TENNANT"
                         });

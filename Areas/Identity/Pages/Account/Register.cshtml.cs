@@ -38,7 +38,6 @@ namespace Property_Management.Areas.Identity.Pages.Account
             _logger = logger;
             _emailSender = emailSender;
             _roleManager = roleManager;
-
         }
 
         [BindProperty]
@@ -75,7 +74,7 @@ namespace Property_Management.Areas.Identity.Pages.Account
             ReturnUrl = returnUrl;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             var roles = _roleManager.Roles;
-            Roles = new SelectList(roles, "Tennant", "Contractor","Property Manager");
+            Roles = new SelectList(roles, "Name", "Name");
         }
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
