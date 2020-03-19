@@ -12,5 +12,7 @@ namespace Property_Management.Models
         [Key]
         public int AdminID { get; set; }
         public IdentityUser IdentityUser { get; set; }
+        public string EmailAddress { get; set; }
+
     }
 }
