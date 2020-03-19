@@ -2,7 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <UserSecretsId>aspnet-Propertymanagement-7D72A297-D0A3-495F-B9C1-1FF78131920A</UserSecretsId>
+    <UserSecretsId>aspnet-Property_Management-E3487304-0F22-46B9-8497-DF9063C28166</UserSecretsId>
+    <RootNamespace>Property_Management</RootNamespace>
   </PropertyGroup>
 
 

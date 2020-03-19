@@ -5,9 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Propertymanagement.Models;
+using Property_Management.Models;
 
-namespace Propertymanagement.Controllers
+namespace Property_Management.Controllers
 {
     public class HomeController : Controller
     {
