@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Property_Management.Data;
 
 namespace Property_Management.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200321001939_Updating Database")]
+    partial class UpdatingDatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,22 +50,22 @@ namespace Property_Management.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "c7148648-5e34-4d77-b790-18643f6dc271",
-                            ConcurrencyStamp = "a7228903-0486-4ef3-9e9b-9b1b1096a7b8",
+                            Id = "cf0faf4a-c88b-42d7-abfa-d1420dbbbc3b",
+                            ConcurrencyStamp = "a5757598-ec5d-4f3c-9d5d-5556d9be9025",
                             Name = "LandLord",
                             NormalizedName = "LANDLORD"
                         },
                         new
                         {
-                            Id = "5e3fbd56-f016-4a3a-8ec1-1f770f6fe9f4",
-                            ConcurrencyStamp = "c184231b-7ef7-4bff-a797-9c2defe54254",
+                            Id = "e6332d32-2d6e-4769-a8f9-2099f9232b53",
+                            ConcurrencyStamp = "a9de70f2-cb5e-4b48-9d57-7cb2dbade098",
                             Name = "Contractor",
                             NormalizedName = "CONTRACTOR"
                         },
                         new
                         {
-                            Id = "ea7bb4ca-d043-4187-b6d5-fc52a73e9990",
-                            ConcurrencyStamp = "b0a76369-9b79-4a44-9adb-5392b5ed07b6",
+                            Id = "c9fa8f84-bd99-4d21-8cd8-4c7db152c2cd",
+                            ConcurrencyStamp = "e5ec9616-039a-4721-afe2-a73d35284ae5",
                             Name = "Tennant",
                             NormalizedName = "TENNANT"
                         });
@@ -238,50 +240,7 @@ namespace Property_Management.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Property_Management.Models.Contractor", b =>
-                {
-                    b.Property<int>("ContractorID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("BusinessName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("IdentityUserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("TechnicianName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ContractorID");
-
-                    b.HasIndex("IdentityUserId");
-
-                    b.ToTable("Contractor");
-                });
-
-            modelBuilder.Entity("Property_Management.Models.LandLord", b =>
-                {
-                    b.Property<int>("AdminID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("EmailAddress")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("IdentityUserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("AdminID");
-
-                    b.HasIndex("IdentityUserId");
-
-                    b.ToTable("LandLord");
-                });
-
-            modelBuilder.Entity("Property_Management.Models.Listing", b =>
+            modelBuilder.Entity("Property_Management.Models.Property_Listing", b =>
                 {
                     b.Property<int>("ListingID")
                         .ValueGeneratedOnAdd()
@@ -291,41 +250,13 @@ namespace Property_Management.Data.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("AdminID")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("Available")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("Baths")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Beds")
-                        .HasColumnType("int");
-
                     b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("LandLordId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SquareFeet")
-                        .HasColumnType("int");
 
                     b.Property<string>("State")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TennantID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ZipCode")
-                        .HasColumnType("int");
-
                     b.HasKey("ListingID");
-
-                    b.HasIndex("LandLordId");
-
-                    b.HasIndex("TennantID");
 
                     b.ToTable("Property_Listing");
                 });
@@ -412,35 +343,6 @@ namespace Property_Management.Data.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Property_Management.Models.Contractor", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "IdentityUser")
-                        .WithMany()
-                        .HasForeignKey("IdentityUserId");
-                });
-
-            modelBuilder.Entity("Property_Management.Models.LandLord", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "IdentityUser")
-                        .WithMany()
-                        .HasForeignKey("IdentityUserId");
-                });
-
-            modelBuilder.Entity("Property_Management.Models.Listing", b =>
-                {
-                    b.HasOne("Property_Management.Models.LandLord", "LandLord")
-                        .WithMany()
-                        .HasForeignKey("LandLordId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Property_Management.Models.Tennant", "Tennant")
-                        .WithMany()
-                        .HasForeignKey("TennantID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

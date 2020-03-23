@@ -12,9 +12,12 @@ namespace Property_Management.Models
     {
         [Key]
         public int AdminID { get; set; }
+        //this is for the Roles
         [ForeignKey("IdentityUser")]
         public string IdentityUserId { get; set; }
         public IdentityUser IdentityUser { get; set; }
+
         public string EmailAddress { get; set; }
+
     }
 }

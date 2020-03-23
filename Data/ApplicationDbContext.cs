@@ -38,10 +38,8 @@ namespace Property_Management.Data
                 );
         }
         public DbSet<Property_Management.Models.Tennant> Tennant { get; set; }
-        public DbSet<Property_Management.Models.Property_Listing> Property_Listing { get; set; }
-
-
-
-
+        public DbSet<Property_Management.Models.Listing> Property_Listing { get; set; }
+        public DbSet<Property_Management.Models.LandLord> LandLord { get; set; }
+        public DbSet<Property_Management.Models.Contractor> Contractor { get; set; }
     }
 }
