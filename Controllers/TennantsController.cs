@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Property_Management.Data;
 using Property_Management.Models;
+using Stripe.Infrastructure;
+using Stripe;
 
 namespace Property_Management.Controllers
 {
@@ -133,6 +135,9 @@ namespace Property_Management.Controllers
 
             return View(tennant);
         }
+       
+
+
 
         // POST: Tennants/Delete/5
         [HttpPost, ActionName("Delete")]
@@ -149,5 +154,7 @@ namespace Property_Management.Controllers
         {
             return _context.Tennant.Any(e => e.TennantID == id);
         }
+        
     }
+    
 }
