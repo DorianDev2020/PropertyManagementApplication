@@ -1,13 +1,22 @@
-﻿
+﻿@using Microsoft.Extensions.Options
+@inject IOptions<Property_Management.Data.StripeSettings> Stripe
 @{
     ViewData["Title"] = "Payments";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Payments</h1>
+<div class="text-center">
+    <form asp-action="Charge" asp-controller="Home" method="POST">
+        <article>
+            <label>Rent Amount: $1200</label>
+        </article>
+        <script src="//checkout.stripe.com/v2/checkout.js"
+                class="stripe-button"
+                data-key="@Stripe.Value.PublishableKey"
+                data-locale="auto"
+                date-description="Sample Charge"
+                data-amount="120000"
+        </script>
+    </form>
+</div>
 
-
-
-
-
-<script src="https://js.stripe.com/v3/"></script>
