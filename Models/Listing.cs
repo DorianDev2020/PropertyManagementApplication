@@ -15,10 +15,10 @@ namespace Property_Management.Models
         public string City { get; set; }
         public string State { get; set; }
         public int ZipCode { get; set; }
-        public bool Available { get; set; }
         public int SquareFeet { get; set; }
         public int Beds { get; set; }
         public int Baths { get; set; }
+        public bool Available { get; set; }
         [ForeignKey("LandLord")]
         public int LandLordId { get; set; }
         public LandLord LandLord { get; set; }

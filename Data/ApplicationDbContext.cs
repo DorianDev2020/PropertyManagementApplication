@@ -35,6 +35,7 @@ namespace Property_Management.Data
                     Name = "Tennant",
                     NormalizedName = "TENNANT"
                 }
+
                 );
         }
         public DbSet<Property_Management.Models.Tennant> Tennant { get; set; }
