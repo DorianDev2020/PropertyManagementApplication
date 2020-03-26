@@ -33,7 +33,15 @@ namespace Property_Management.Controllers
         {
             return View();
         }
-        public IActionResult Maintnance()
+       public IActionResult Maintenance()
+        {
+            return View();
+        }
+        public IActionResult Listings()
+        {
+            return View();
+        }
+        public IActionResult Charge()
         {
             return View();
         }

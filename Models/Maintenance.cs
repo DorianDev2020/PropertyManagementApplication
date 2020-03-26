@@ -14,6 +14,6 @@ namespace Property_Management.Models
         [ForeignKey("Tenant")]
         public int TenantId { get; set; }
         [Display(Name = "Work Order Request")]
-        public string WorkOrder { get; set; }
+        public string maintenanceRequest { get; set; }
     }
 }

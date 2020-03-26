@@ -8,10 +8,11 @@
 <div class="text-center">
     <form asp-action="Charge" asp-controller="Home" method="POST">
         <article>
-            <label>Rent Amount: $1200</label>
+            <label>Use the link below to make a payment</label>
         </article>
         <script src="//checkout.stripe.com/v2/checkout.js"
                 class="stripe-button"
+                style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
                 data-key="@Stripe.Value.PublishableKey"
                 data-locale="auto"
                 date-description="Sample Charge"
@@ -19,4 +20,38 @@
         </script>
     </form>
 </div>
+<!-- Load Stripe.js on your website. -->
+<script src="https://js.stripe.com/v3">
+
+</script>
+
+<!-- Create a button that your customers click to complete their purchase. Customize the styling to suit your branding. -->
+
+
+<div id="error-message"></div>
+
+<script>
+    (function () {
+        var stripe = Stripe('pk_test_t4cnuv6R1FhTopNHjdxihxzy00uVaKdkZf');
+
+        var checkoutButton = document.getElementById('checkout-button-sku_GyxwVQc0Fcke7h');
+        checkoutButton.addEventListener('click', function () {
+            // When the customer clicks on the button, redirect
+            // them to Checkout.
+            stripe.redirectToCheckout({
+                items: [{ sku: 'sku_GyxwVQc0Fcke7h', quantity: 1 }],
+
+            
+            })
+                .then(function (result) {
+                    if (result.error) {
+                        // If `redirectToCheckout` fails due to a browser or network
+                        // error, display the localized error message to your customer.
+                        var displayError = document.getElementById('error-message');
+                        displayError.textContent = result.error.message;
+                    }
+                });
+        });
+    })();
+</script>
 
